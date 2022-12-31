@@ -1,0 +1,15 @@
+<table class="table-fixed text-left w-full border border-slate-100">
+    <thead class="sticky bg-gray-700 top-0 text-white">
+        <tr>
+            <th *ngFor="let header of table1Header" class="border border-slate-100 w-20  py-2">{{header}}</th>
+        </tr>
+    </thead>
+    <tbody class="mt-30 bg-grey-100 " style="height: 40vh;">
+
+        <tr *ngFor="let row of table1Data">
+            <td *ngFor="let cell of row" class="border border-slate-200  py-2">{{cell}}</td>
+
+        </tr>
+
+    </tbody>
+</table>

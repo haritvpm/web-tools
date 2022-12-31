@@ -7,6 +7,7 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 
 
+
 @NgModule({
 
   providers: [],
@@ -18,7 +19,8 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
   declarations: [
     AppComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+
   ],
 })
 export class AppModule { }
