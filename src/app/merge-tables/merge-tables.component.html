@@ -1,0 +1,30 @@
+<div class="space-y-1 space-x-1">
+    <h1 class="text-xl font-bold underline">
+        Merge Tables
+
+    </h1>
+    <button (click)="getDataFromClipBoard($event)"
+        class="bg-gray-500 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded">
+        Paste Primary Table
+    </button>
+    <div class="max-h-96 overflow-auto flex flex-col relative">
+        <table class="table-fixed text-left w-full border border-slate-100  flex-grow">
+            <thead class="sticky bg-gray-700 top-0 text-white">
+                <tr>
+                    <th *ngFor="let header of table1Header" class="border border-slate-100 w-20  py-2">{{header}}</th>
+                </tr>
+            </thead>
+            <tbody class="mt-30 bg-grey-100 " style="height: 40vh;">
+
+                <tr *ngFor="let row of table1Data">
+                    <td *ngFor="let cell of row" class="border border-slate-200  py-2">{{cell}}</td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <button class="bg-gray-500 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded">
+        Paste Secondary Table
+    </button>
+</div>
