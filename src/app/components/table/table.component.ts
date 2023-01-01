@@ -1,8 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 import { MatTableDataSource } from '@angular/material/table';
 
 
+export interface ColumnCheckedEvent {
+  col: string;
+  checked: boolean;
 
+}
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -15,31 +20,25 @@ export class TableComponent {
 
   @Input() tableData: string[][] = [];
   @Input() tableHeader: string[] = [];
+  @Output() headerclick = new EventEmitter<ColumnCheckedEvent>();
 
 
   dataSource = new MatTableDataSource(this.tableData);
 
-  colsChecked: string[] = [];
 
 
   constructor() {
   }
 
   /** Selects all rows if they are not all selected; otherwise clear selection. */
-  colToggle(col: string) {
+  colToggle(event: MatCheckboxChange, col: string) {
 
-    if (!this.colsChecked.includes(col)) {          //checking weather this.colsCheckeday contain the id
-      this.colsChecked.push(col);               //adding to this.colsCheckeday because value doesnt exists
-    } else {
-      this.colsChecked.splice(this.colsChecked.indexOf(col), 1);  //deleting
-    }
+    this.headerclick.emit({ col, checked: event.checked })
 
-    console.log(this.colsChecked)
+
+
   }
 
-  isColChecked(col: string) {
 
-    return this.colsChecked.includes(col)
-  }
 
 }

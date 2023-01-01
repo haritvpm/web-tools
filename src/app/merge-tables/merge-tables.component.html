@@ -4,13 +4,26 @@
 
     </h1>
 
-    <button mat-flat-button color="primary" (click)="getDataFromClipBoard($event)"> Paste Primary Table</button>
+    <div class="cflex cjustify-between">
+        <div>
+            <button mat-flat-button color="primary" (click)="getDataFromClipBoard($event)"> Paste Primary Table</button>
 
+            Select Foreign Key(s)
+        </div>
 
-    <app-table [tableData]="table1Data" [tableHeader]="table1Header"></app-table>
+        <button mat-flat-button color="accent" (click)="mergeAndCopy($event)"
+            [disabled]="table1ColsChecked.length === 0 || table2ColsChecked.length === 0">
+            Merge and Copy Table</button>
 
-    <button mat-flat-button color="primary" (click)="getDataFromClipBoard2($event)"> Paste Secondary Table</button>
+    </div>
+    <app-table (headerclick)="onHeader1Clicked($event)" [tableData]="table1Data"
+        [tableHeader]="table1Header"></app-table>
 
-    <app-table [tableData]="table2Data" [tableHeader]="table2Header"></app-table>
+    <div>
+        <button mat-flat-button color="primary" (click)="getDataFromClipBoard2($event)"> Paste Secondary Table</button>
+        Select Columns to add to primary table
+        <app-table (headerclick)="onHeader2Clicked($event)" [tableData]="table2Data"
+            [tableHeader]="table2Header"></app-table>
+    </div>
 
 </div>
