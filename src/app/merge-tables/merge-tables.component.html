@@ -3,14 +3,14 @@
         Merge Tables
 
     </h1>
-    <button (click)="getDataFromClipBoard($event)"
-        class="bg-gray-500 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded">
-        Paste Primary Table
-    </button>
-    <div class="max-h-96 overflow-auto flex flex-col relative">
-        <app-table [table1Data]="table1Data" [table1Header]="table1Header"></app-table>
-    </div>
-    <button class="bg-gray-500 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded">
-        Paste Secondary Table
-    </button>
+
+    <button mat-flat-button color="primary" (click)="getDataFromClipBoard($event)"> Paste Primary Table</button>
+
+
+    <app-table [tableData]="table1Data" [tableHeader]="table1Header"></app-table>
+
+    <button mat-flat-button color="primary" (click)="getDataFromClipBoard2($event)"> Paste Secondary Table</button>
+
+    <app-table [tableData]="table2Data" [tableHeader]="table2Header"></app-table>
+
 </div>

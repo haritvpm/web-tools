@@ -1,0 +1,28 @@
+.table-container {
+    height: 400px;
+    overflow: auto;
+    margin: 5px 0px;
+}
+
+table {
+    width: 100%;
+}
+
+th,
+td {
+    overflow: hidden;
+    width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+
+}
+
+
+th:nth-child(odd) {
+    background: #f7fbf7;
+}
+
+td:nth-child(odd) {
+    background: #f9fdf9;
+}
