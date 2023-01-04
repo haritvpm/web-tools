@@ -1,0 +1,40 @@
+<div class="space-y-1 space-x-1">
+    <h1 class="text-xl font-bold underline">
+        Table Duplicates
+
+    </h1>
+
+    <div class="cflex cjustify-between">
+        <div>
+            <button mat-flat-button color="primary" (click)="getDataFromClipBoard($event)"> Paste Primary Table</button>
+
+            Select Unique Column(s)
+        </div>
+        <span class="cflex cjustify-end">
+            <button mat-flat-button color="accent" [disabled]="table1ColsChecked.length === 0"
+                (click)="findDuplicates('all-dups')">
+                Find Duplicates(All)
+            </button>
+            <button mat-flat-button color="accent" [disabled]="table1ColsChecked.length === 0"
+                (click)="findDuplicates('unique-dups')">
+                Find Duplicates(Unique)
+            </button>
+            <button mat-flat-button color="accent" [disabled]="table1ColsChecked.length === 0"
+                (click)="findDuplicates('remove-dups')">
+                Remove Duplicates
+            </button>
+
+        </span>
+    </div>
+    <app-table (headerclick)="onHeader1Clicked($event)" [tableData]="table1Data"
+        [tableHeader]="table1Header"></app-table>
+
+    <div style="margin-top: 4px;">
+        <span class="cflex cjustify-end">
+            <button mat-flat-button color="accent" [disabled]="table2Data.length === 0"> Copy</button>
+        </span>
+        <app-table [tableData]="table2Data" [tableHeader]="table2Header" [headerChecks]="false"></app-table>
+
+    </div>
+
+</div>

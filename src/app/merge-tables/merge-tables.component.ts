@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ColumnCheckedEvent } from './../components/table/table.component';
+
 import { Clipboard } from '@angular/cdk/clipboard';
+import { ColumnCheckedEvent } from '../shared/table/table.component';
 
 @Component({
   selector: 'app-merge-tables',
@@ -41,7 +42,7 @@ export class MergeTablesComponent {
     })
   }
 
-  onHeader1Clicked(e: ColumnCheckedEvent) {
+  onHeader1Clicked(e: any) {
 
     if (e.checked) {
       this.table1ColsChecked.push(e.col);
@@ -50,7 +51,7 @@ export class MergeTablesComponent {
     }
 
   }
-  onHeader2Clicked(e: ColumnCheckedEvent) {
+  onHeader2Clicked(e: any) {
 
     if (e.checked) {
       this.table2ColsChecked.push(e.col);
@@ -88,7 +89,7 @@ export class MergeTablesComponent {
 
     })
     // console.log(merged)
-    let csvContent = ''
+    let csvContent = this.table1Header.concat(this.table2ColsChecked).join('\t') + "\r\n";
 
     merged.forEach(row => {
       csvContent += row.join('\t') + "\r\n"

@@ -21,6 +21,7 @@ export class TableComponent {
   @Input() tableData: string[][] = [];
   @Input() tableHeader: string[] = [];
   @Output() headerclick = new EventEmitter<ColumnCheckedEvent>();
+  @Input() headerChecks: boolean = true;
 
 
   dataSource = new MatTableDataSource(this.tableData);

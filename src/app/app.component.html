@@ -7,11 +7,17 @@
 </mat-toolbar>
 
 <mat-sidenav-container>
-  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
-    <button mat-button class="menu-button" routerLink="">
-      <mat-icon>home</mat-icon>
-      <span>Marge Tables</span>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8 ">
+    <button mat-button class="menu-button" routerLink="" routerLinkActive='active'
+      [routerLinkActiveOptions]="{exact: true}">
+
+      <span>Merge Tables</span>
     </button>
+    <button mat-button class="menu-button" routerLink="table-duplicate-finder" routerLinkActive='active'>
+
+      <span> Table Duplicates</span>
+    </button>
+
   </mat-sidenav>
 
   <mat-sidenav-content>

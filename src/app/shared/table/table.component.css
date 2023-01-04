@@ -16,13 +16,12 @@ td {
     white-space: nowrap;
     text-align: left;
 
+
 }
 
+th:not(:first-of-type),
+td:not(:first-of-type) {
 
-th:nth-child(odd) {
-    background: #f7fbf7;
-}
+    border-left: 1px solid #e0e0e0;
 
-td:nth-child(odd) {
-    background: #f9fdf9;
 }

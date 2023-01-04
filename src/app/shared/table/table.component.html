@@ -5,8 +5,8 @@
         <ng-container *ngFor="let header of tableHeader; let i = index;" [matColumnDef]="header">
 
             <th mat-header-cell *matHeaderCellDef>
-                <mat-checkbox (change)="$event ? colToggle($event, header) : null">
-                </mat-checkbox> {{header}}
+                {{header}} <mat-checkbox *ngIf="headerChecks" (change)="$event ? colToggle($event, header) : null">
+                </mat-checkbox>
             </th>
             <td mat-cell *matCellDef="let element"> {{element[i]}} </td>
         </ng-container>
